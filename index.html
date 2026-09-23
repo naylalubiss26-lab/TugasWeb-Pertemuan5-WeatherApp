@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="default">
+    <main class="app">
+        <h1>🌦️ Weather App</h1>
+
+        <div class="search-area">
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Ketik nama kota..." autocomplete="off" required>
+                <button type="submit">Cari</button>
+            </form>
+
+            <div id="history" class="hidden">
+                <p class="history-label">🕐 Riwayat pencarian</p>
+                <div id="history-list"></div>
+            </div>
+        </div>
+
+        <p id="loading" class="hidden">⏳ Mencari data cuaca...</p>
+        <p id="error" class="hidden"></p>
+
+        <div id="weather" class="hidden">
+            <h2 id="city-name"></h2>
+            <img id="weather-icon" alt="ikon cuaca">
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <p id="humidity"></p>
+            <button type="button" id="unit-toggle" class="unit-toggle">Tukar ke °F</button>
+        </div>
+
+        <div id="forecast" class="hidden">
+            <p class="forecast-label">📅 Prakiraan 5 hari</p>
+            <div id="forecast-list"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
