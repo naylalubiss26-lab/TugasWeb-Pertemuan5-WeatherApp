@@ -1,0 +1,11 @@
+# File berisi API key - jangan pernah di-commit
+config.js
+.env
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+
+# Folder editor
+.vscode/
+.idea/

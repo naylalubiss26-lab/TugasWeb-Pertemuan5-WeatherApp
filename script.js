@@ -1,5 +1,3 @@
-const apiKey = "ea0efd554d815e9825e3c268e1da8d65"; // ← key kamu
-
 const el = {
   loading: document.getElementById("loading"),
   error: document.getElementById("error"),
