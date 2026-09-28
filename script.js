@@ -1,3 +1,5 @@
+const apiKey = CONFIG.apiKey;
+
 const el = {
   loading: document.getElementById("loading"),
   error: document.getElementById("error"),
@@ -94,7 +96,7 @@ const getWeather = async (city) => {
 
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`
     );
 
     if (!response.ok) {
@@ -134,15 +136,15 @@ const getWeather = async (city) => {
 const getForecast = async (city) => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`
     );
     if (!response.ok) return;
 
     const data = await response.json();
     forecastDays = data.list.filter((item) => item.dt_txt.includes("12:00:00"));
     renderForecast();
-  } catch {
-    
+  } catch (err) {
+    console.error("Forecast gagal dimuat:", err);
   }
 };
 
@@ -151,7 +153,9 @@ const input = document.getElementById("city-input");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  getWeather(input.value);
+  const city = input.value.trim();
+  if (!city) return;
+  getWeather(city);
 });
 
 input.addEventListener("click", showHistory);
