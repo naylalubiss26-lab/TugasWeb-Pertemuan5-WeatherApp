@@ -1,5 +1,4 @@
 # File berisi API key - jangan pernah di-commit
-config.js
 .env
 
 # File sistem operasi
